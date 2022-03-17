@@ -27,21 +27,21 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="planetListCell" textLabel="Xxr-uh-6Da" detailTextLabel="p3N-2c-bbD" style="IBUITableViewCellStyleSubtitle" id="pdd-IL-0hd">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="53.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="50.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pdd-IL-0hd" id="wnK-f2-bcr">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xxr-uh-6Da">
-                                                    <rect key="frame" x="20" y="8.5" width="30" height="17"/>
+                                                    <rect key="frame" x="20" y="7.5" width="30" height="17"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p3N-2c-bbD">
-                                                    <rect key="frame" x="20" y="28" width="44" height="14.5"/>
+                                                    <rect key="frame" x="20" y="27" width="44" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <nil key="textColor"/>
@@ -49,10 +49,13 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="XHf-q7-cvi" kind="show" identifier="showPlanetDetail" id="fdM-RY-lbC"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="XdS-Vu-ymW"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="4cW-kO-Ly4"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -70,10 +73,124 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BFG-89-eg8"/>
+                    <connections>
+                        <outlet property="tableView" destination="ine-rT-NC3" id="ZHu-AR-FE4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="114.50892857142857"/>
+        </scene>
+        <!--Planet Detail View Controller-->
+        <scene sceneID="db1-pZ-nXJ">
+            <objects>
+                <viewController id="XHf-q7-cvi" customClass="PlanetDetailViewController" customModule="SolarSystem" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p2M-if-gf0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="As1-Fa-gBb">
+                                <rect key="frame" x="168.5" y="104" width="77" height="30"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" systemColor="systemTealColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ua-xZ-baF">
+                                <rect key="frame" x="16" y="221" width="382" height="128"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3Nk-gd-5kV">
+                                <rect key="frame" x="16" y="597" width="382" height="17"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maximum Distance From Sun" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdW-PR-DdN">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="IY1-9D-3oF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                        <color key="textColor" systemColor="systemPinkColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(maxDistance)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypC-fi-yLK">
+                                        <rect key="frame" x="216" y="0.0" width="166" height="17"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" systemColor="systemYellowColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bFG-YY-IlD">
+                                <rect key="frame" x="16" y="645" width="382" height="17"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day Length" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wo1-bi-jkH">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="AsM-Q7-Sf3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                        <color key="textColor" systemColor="systemPinkColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(dayLength)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhh-5J-WKl">
+                                        <rect key="frame" x="216" y="0.0" width="166" height="17"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" systemColor="systemYellowColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LoK-ZB-LZH">
+                                <rect key="frame" x="16" y="558" width="382" height="17"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planet DIameter" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2TM-hy-Jg1">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="khf-Gh-r1z"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                        <color key="textColor" systemColor="systemPinkColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(diameter)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urp-o9-ZEq">
+                                        <rect key="frame" x="216" y="0.0" width="166" height="17"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" systemColor="systemYellowColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="V5a-GV-UQ9"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3Nk-gd-5kV" firstAttribute="leading" secondItem="V5a-GV-UQ9" secondAttribute="leading" constant="16" id="0uW-BS-g5o"/>
+                            <constraint firstItem="V5a-GV-UQ9" firstAttribute="trailing" secondItem="3ua-xZ-baF" secondAttribute="trailing" constant="16" id="1No-hh-ppW"/>
+                            <constraint firstItem="V5a-GV-UQ9" firstAttribute="trailing" secondItem="bFG-YY-IlD" secondAttribute="trailing" constant="16" id="4B7-k7-is5"/>
+                            <constraint firstItem="3Nk-gd-5kV" firstAttribute="top" secondItem="LoK-ZB-LZH" secondAttribute="bottom" constant="8" id="8u4-DD-CZ3"/>
+                            <constraint firstItem="bFG-YY-IlD" firstAttribute="leading" secondItem="V5a-GV-UQ9" secondAttribute="leading" constant="16" id="CM4-dA-o4l"/>
+                            <constraint firstItem="V5a-GV-UQ9" firstAttribute="trailing" secondItem="3Nk-gd-5kV" secondAttribute="trailing" constant="16" id="FuP-S4-KS2"/>
+                            <constraint firstItem="As1-Fa-gBb" firstAttribute="top" secondItem="V5a-GV-UQ9" secondAttribute="top" constant="16" id="J8F-vc-jnE"/>
+                            <constraint firstItem="V5a-GV-UQ9" firstAttribute="trailing" secondItem="LoK-ZB-LZH" secondAttribute="trailing" constant="16" id="O3a-6s-BPx"/>
+                            <constraint firstItem="LoK-ZB-LZH" firstAttribute="top" secondItem="3ua-xZ-baF" secondAttribute="bottom" constant="16" id="WYd-sA-mSh"/>
+                            <constraint firstItem="3ua-xZ-baF" firstAttribute="leading" secondItem="V5a-GV-UQ9" secondAttribute="leading" constant="16" id="XeI-zl-Ucv"/>
+                            <constraint firstItem="LoK-ZB-LZH" firstAttribute="leading" secondItem="V5a-GV-UQ9" secondAttribute="leading" constant="16" id="bBj-MA-5cY"/>
+                            <constraint firstItem="As1-Fa-gBb" firstAttribute="centerX" secondItem="p2M-if-gf0" secondAttribute="centerX" id="cn4-Be-7uI"/>
+                            <constraint firstItem="3ua-xZ-baF" firstAttribute="top" secondItem="As1-Fa-gBb" secondAttribute="bottom" constant="16" id="dtM-Jb-eJc"/>
+                            <constraint firstItem="LoK-ZB-LZH" firstAttribute="top" secondItem="3ua-xZ-baF" secondAttribute="bottom" constant="16" id="fgL-Fe-Sgh"/>
+                            <constraint firstItem="bFG-YY-IlD" firstAttribute="top" secondItem="3Nk-gd-5kV" secondAttribute="bottom" constant="8" id="zct-d0-h2G"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="CvX-3V-YBF"/>
+                    <connections>
+                        <outlet property="dayLengthLabel" destination="fhh-5J-WKl" id="q5p-a2-FjL"/>
+                        <outlet property="diameterLabel" destination="urp-o9-ZEq" id="b8x-lk-h8m"/>
+                        <outlet property="imageView" destination="3ua-xZ-baF" id="YCK-aF-p5o"/>
+                        <outlet property="maxDistanceLabel" destination="ypC-fi-yLK" id="ulj-Bx-kJY"/>
+                        <outlet property="nameLabel" destination="As1-Fa-gBb" id="6wm-d7-sXC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ms-mH-GQ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1899" y="115"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1V7-6a-IoN">
@@ -97,6 +214,12 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

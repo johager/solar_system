@@ -9,6 +9,10 @@ import UIKit
 
 class PlanetListViewController: UIViewController {
     
+    // MARK: - Outlets
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -18,7 +22,16 @@ class PlanetListViewController: UIViewController {
 
     // MARK: - Navigation
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showPlanetDetail" {
+            guard
+                let indexPath = tableView.indexPathForSelectedRow,
+                let destination = segue.destination as? PlanetDetailViewController
+            else { return }
+            destination.planet = PlanetController.planets[indexPath.row]
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
